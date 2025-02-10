@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="./fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/fontawesome/css/all.min.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet">
     <title>Hello, world!</title>
@@ -13,11 +13,11 @@
     
 
 <div class="container-fluid p-5 mt-3 mt-xl-4" style="width: 80% 100%;">
-    <div class="card shadow-sm mb-5 bd-body rounded">
+    <div class="card border-0 shadow-sm mb-5 bd-body rounded">
         
         <div class="card-body d-lg-flex p-5" width="100%">
             <div class="d-flex col-lg-7 col-xxl-8">
-                <img src="img/profile-pic.png" width="180px">
+                <img src="/img/profile-pic.png" width="180px">
                 <div class="card-body col-lg-3 col-xxl-3">
                     <h4 class="card-title">Killian Sven</h3>
                     <p class="card-text" style="margin-top: -3px;">Front-end Designer</p>
@@ -64,33 +64,62 @@
         <li class="nav-item border-bottom" role="presentation">
           <a class="nav-link active" data-bs-toggle="tab" href="#profile" aria-selected="true" role="tab">Profile</a>
         </li>
-      </ul>
-      <div id="myTabContent" class="tab-content">
-        <div class="tab-pane fade active show" id="profile" role="tabpanel">
-            <div class="card p-3 mt-3">
+    </ul>
+
+    <div id="myTabContent" class="tab-content">
+        <div class="tab-pane fade active show d-flex" id="profile" role="tabpanel">
+        <div class="d-flex flex-md-row flex-column gap-md-3">
+
+            <div class="col-md-2 card border-0 shadow-sm p-3 mt-3" style="height: 70%;">
                 <div class="card-body">
                     <h4 class="card-title mb-3">WORKS</h3>
-                    Landing page design<br>
-                    Flyer design<br>    
-                    Vue.js To-do app<br>
-                    Shopping page design
+                    <p style="margin-bottom: 1%;">Landing page design</p>
+                    <p style="margin-bottom: 1%;">Flyer design</p>    
+                    <p style="margin-bottom: 1%;">Vue.js To-do app</p>
+                    <p style="margin-bottom: 1%;">Shopping page design</p>
                 </div>
             </div>
-            <div class="card p-3 mt-3">
+
+            <div class="col-md-8 card border-0 shadow-sm p-3 mt-3" style="height: 110%;">
                 <div class="card-body">
-                    <h4 class="card-title mb-3">ABOUT</h3>
+                    <h4 class="card-title mb-3">ABOUT</h4>
                     <p class="card-text">I am a front-end designer who is excellent at Boostrap, Sass, Foundation.
                     I have dealt lots of in-house design works and outsource things. If you want to check my portfolio. please visit Kililansven.com</p>
 
-                    <div class="border-bottom"></div>
+                    <div class="border-bottom p-4 mb-4"></div>
 
+                    <h4 class="card-title mb-4">SKILLS</h4>
+                    <div class="d-flex flex-wrap bd-highlight mb-3" style="margin-left: -10px;">
+                        <div class="border border-2 rounded-pill p-2 ps-4 pe-4 m-1 bd-highlight">HTML5</div>
+                        <div class="border border-2 rounded-pill p-2 ps-4 pe-4 m-1 bd-highlight">JavaScript</div>
+                        <div class="border border-2 rounded-pill p-2 ps-4 pe-4 m-1 bd-highlight">CSS3</div>
+                        <div class="border border-2 rounded-pill p-2 ps-4 pe-4 m-1 bd-highlight">Illustrator</div>
+                        <div class="border border-2 rounded-pill p-2 ps-4 pe-4 m-1 bd-highlight">Photoshop</div>
+                    </div>
                 </div>
             </div>
 
+            <div class="col-md-2">
+                <div class="card border-0 shadow-sm p-4 mt-4 mt-xl-3" style="width: 100%;">
+                    <div class="card-body">
+                        <div class="mb-3 d-flex justify-content-center"><i class="fas fa-fire fa-5x text-primary text-opacity-50"></i></div>
+                        <div class="p-2 d-flex justify-content-center bd-highlight" style="width: 100%;">Find me at Linkedout.com</div>
+                        <div class="p-2 d-flex justify-content-center bd-highlight">
+                            <button type="button" class="btn btn-primary ps-4 pe-4 p-2 mt-1" disabled>Sign Up</button>
+                        </div>
+                        <div class="p-2 bd-highlight text-primary text-opacity-75 d-flex justify-content-center">Already a member?</div>
+                    </div>
+                </div>
+
+                <div>
+
+                </div>
+
+            </div>
         </div>
-      </div>
 
-
+        </div>
+    </div>
 
 </div>
 
