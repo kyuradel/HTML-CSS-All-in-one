@@ -60,7 +60,7 @@
     </div>
     
 
-    <ul class="nav border-bottom" role="tablist">
+    <ul class="nav border-bottom mb-4" role="tablist">
         <li class="nav-item border-bottom" role="presentation">
           <a class="nav-link active" data-bs-toggle="tab" href="#profile" aria-selected="true" role="tab">Profile</a>
         </li>
@@ -68,39 +68,49 @@
 
     <div id="myTabContent" class="tab-content">
         <div class="tab-pane fade active show d-flex" id="profile" role="tabpanel">
-        <div class="d-flex flex-md-row flex-column gap-md-3">
-
-            <div class="col-md-2 card border-0 shadow-sm p-3 mt-3" style="height: 70%;">
-                <div class="card-body">
-                    <h4 class="card-title mb-3">WORKS</h3>
-                    <p style="margin-bottom: 1%;">Landing page design</p>
-                    <p style="margin-bottom: 1%;">Flyer design</p>    
-                    <p style="margin-bottom: 1%;">Vue.js To-do app</p>
-                    <p style="margin-bottom: 1%;">Shopping page design</p>
-                </div>
-            </div>
-
-            <div class="col-md-8 card border-0 shadow-sm p-3 mt-3" style="height: 110%;">
-                <div class="card-body">
-                    <h4 class="card-title mb-3">ABOUT</h4>
-                    <p class="card-text">I am a front-end designer who is excellent at Boostrap, Sass, Foundation.
-                    I have dealt lots of in-house design works and outsource things. If you want to check my portfolio. please visit Kililansven.com</p>
-
-                    <div class="border-bottom p-4 mb-4"></div>
-
-                    <h4 class="card-title mb-4">SKILLS</h4>
-                    <div class="d-flex flex-wrap bd-highlight mb-3" style="margin-left: -10px;">
-                        <div class="border border-2 rounded-pill p-2 ps-4 pe-4 m-1 bd-highlight">HTML5</div>
-                        <div class="border border-2 rounded-pill p-2 ps-4 pe-4 m-1 bd-highlight">JavaScript</div>
-                        <div class="border border-2 rounded-pill p-2 ps-4 pe-4 m-1 bd-highlight">CSS3</div>
-                        <div class="border border-2 rounded-pill p-2 ps-4 pe-4 m-1 bd-highlight">Illustrator</div>
-                        <div class="border border-2 rounded-pill p-2 ps-4 pe-4 m-1 bd-highlight">Photoshop</div>
+        
+        <!-- Content Section -->
+        <div class="row">
+            <!-- Works Section -->
+            <div class="col-md-3 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h4 class="mb-3">WORKS</h4>
+                        <div class="d-flex flex-column gap-2">
+                            <p class="mb-0">Landing page design</p>
+                            <p class="mb-0">Flyer design</p>    
+                            <p class="mb-0">Vue.js To-do app</p>
+                            <p class="mb-0">Shopping page design</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <div class="col-md-2">
-                <div class="card border-0 shadow-sm p-4 mt-4 mt-xl-3" style="width: 100%;">
+            <!-- About Section -->
+            <div class="col-md-6 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h4 class="mb-3">ABOUT</h4>
+                        <p>I am a front-end designer who is excellent at Boostrap, Sass, Foundation.
+                        I have dealt lots of in-house design works and outsource things. If you want to check my portfolio. please visit Kililansven.com</p>
+    
+                        <div class="border-bottom p-4 mb-4"></div>
+    
+                        <h4 class="mb-3">SKILLS</h4>
+                        <div class="d-flex flex-wrap">
+                            <div class="border border-2 rounded-pill p-1 ps-4 pe-4 m-1 bd-highlight">HTML5</div>
+                            <div class="border border-2 rounded-pill p-1 ps-4 pe-4 m-1 bd-highlight">JavaScript</div>
+                            <div class="border border-2 rounded-pill p-1 ps-4 pe-4 m-1 bd-highlight">CSS3</div>
+                            <div class="border border-2 rounded-pill p-1 ps-4 pe-4 m-1 bd-highlight">Illustrator</div>
+                            <div class="border border-2 rounded-pill p-1 ps-4 pe-4 m-1 bd-highlight">Photoshop</div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+
+            <!-- Connect Section -->
+            <div class="col-md-3 mb-4">
+                <div class="card border-0 shadow-sm text-align">
                     <div class="card-body">
                         <div class="mb-3 d-flex justify-content-center"><i class="fas fa-fire fa-5x text-primary text-opacity-50"></i></div>
                         <div class="p-2 d-flex justify-content-center bd-highlight" style="width: 100%;">Find me at Linkedout.com</div>
