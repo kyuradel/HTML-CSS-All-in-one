@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cross-browser Progress Bars</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            padding: 2rem;
+            background: #f0f2f5;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .card {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            -webkit-box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        /* Common progress styles */
+        .progress-container {
+            margin: 1.5rem 0;
+        }
+
+        .progress-label {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-pack: justify;
+            -ms-flex-pack: justify;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            color: #4a5568;
+        }
+
+        /* Dots Loading Progress */
+        .dots-progress {
+            height: 20px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .dots-progress::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: var(--progress, 0%);
+            background: #3b82f6;
+            border-radius: 10px;
+            -webkit-animation: dotsPulse 1.5s ease-in-out infinite;
+            animation: dotsPulse 1.5s ease-in-out infinite;
+        }
+
+        @-webkit-keyframes dotsPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        @keyframes dotsPulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        /* Liquid Progress */
+        .liquid-progress {
+            height: 25px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .liquid-progress::before {
+            content: '';
+            position: absolute;
+            height: 200%;
+            width: var(--progress, 0%);
+            background: -webkit-linear-gradient(90deg, #00f2fe, #4facfe);
+            background: linear-gradient(90deg, #00f2fe, #4facfe);
+            -webkit-animation: liquidWave 2s ease-in-out infinite;
+            animation: liquidWave 2s ease-in-out infinite;
+            -webkit-transform-origin: 50% 50%;
+            transform-origin: 50% 50%;
+        }
+
+        @-webkit-keyframes liquidWave {
+            0%, 100% { -webkit-transform: translateY(-25%) rotate(0deg); transform: translateY(-25%) rotate(0deg); }
+            50% { -webkit-transform: translateY(-25%) rotate(7deg); transform: translateY(-25%) rotate(7deg); }
+        }
+
+        @keyframes liquidWave {
+            0%, 100% { -webkit-transform: translateY(-25%) rotate(0deg); transform: translateY(-25%) rotate(0deg); }
+            50% { -webkit-transform: translateY(-25%) rotate(7deg); transform: translateY(-25%) rotate(7deg); }
+        }
+
+        /* Rainbow Progress */
+        .rainbow-progress {
+            height: 15px;
+            background: #e2e8f0;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .rainbow-progress::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: var(--progress, 0%);
+            background: -webkit-linear-gradient(
+                45deg,
+                #ff0000 0%,
+                #ff9a00 10%,
+                #d0de21 20%,
+                #4fdc4a 30%,
+                #3fdad8 40%,
+                #2fc9e2 50%,
+                #1c7fee 60%,
+                #5f15f2 70%,
+                #ba0cf8 80%,
+                #fb07d9 90%,
+                #ff0000 100%
+            );
+            background: linear-gradient(
+                45deg,
+                #ff0000 0%,
+                #ff9a00 10%,
+                #d0de21 20%,
+                #4fdc4a 30%,
+                #3fdad8 40%,
+                #2fc9e2 50%,
+                #1c7fee 60%,
+                #5f15f2 70%,
+                #ba0cf8 80%,
+                #fb07d9 90%,
+                #ff0000 100%
+            );
+            background-size: 200% 100%;
+            border-radius: 8px;
+            -webkit-animation: rainbowMove 2s linear infinite;
+            animation: rainbowMove 2s linear infinite;
+        }
+
+        @-webkit-keyframes rainbowMove {
+            0% { background-position: 0% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        @keyframes rainbowMove {
+            0% { background-position: 0% 0; }
+            100% { background-position: 200% 0; }
+        }
+
+        /* Step Progress */
+        .step-progress {
+            height: 20px;
+            background: #e2e8f0;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .step-progress::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: var(--progress, 0%);
+            background: -webkit-repeating-linear-gradient(
+                90deg,
+                #34d399 0px,
+                #34d399 20px,
+                #10b981 20px,
+                #10b981 40px
+            );
+            background: repeating-linear-gradient(
+                90deg,
+                #34d399 0px,
+                #34d399 20px,
+                #10b981 20px,
+                #10b981 40px
+            );
+            border-radius: 10px;
+            -webkit-animation: stepMove 1s linear infinite;
+            animation: stepMove 1s linear infinite;
+        }
+
+        @-webkit-keyframes stepMove {
+            0% { background-position: 0px 0; }
+            100% { background-position: 40px 0; }
+        }
+
+        @keyframes stepMove {
+            0% { background-position: 0px 0; }
+            100% { background-position: 40px 0; }
+        }
+
+        /* Snake Progress */
+        .snake-progress {
+            height: 15px;
+            background: #e2e8f0;
+            border-radius: 8px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .snake-progress::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: var(--progress, 0%);
+            background: -webkit-linear-gradient(90deg, #3b82f6 70%, #60a5fa 70%);
+            background: linear-gradient(90deg, #3b82f6 70%, #60a5fa 70%);
+            background-size: 20px 100%;
+            border-radius: 8px;
+            -webkit-animation: snakeMove 1s linear infinite;
+            animation: snakeMove 1s linear infinite;
+        }
+
+        @-webkit-keyframes snakeMove {
+            0% { background-position: 0px 0; }
+            100% { background-position: 20px 0; }
+        }
+
+        @keyframes snakeMove {
+            0% { background-position: 0px 0; }
+            100% { background-position: 20px 0; }
+        }
+
+        /* Neon Progress */
+        .neon-progress {
+            height: 12px;
+            background: #1a1a1a;
+            border-radius: 6px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-progress::after {
+            content: '';
+            position: absolute;
+            height: 100%;
+            width: var(--progress, 0%);
+            background: #f0abfc;
+            border-radius: 6px;
+            -webkit-box-shadow: 0 0 10px #f0abfc, 0 0 20px #e879f9;
+            box-shadow: 0 0 10px #f0abfc, 0 0 20px #e879f9;
+            -webkit-animation: neonPulse 1.5s ease-in-out infinite;
+            animation: neonPulse 1.5s ease-in-out infinite;
+        }
+
+        @-webkit-keyframes neonPulse {
+            0%, 100% { opacity: 1; -webkit-box-shadow: 0 0 10px #f0abfc, 0 0 20px #e879f9; box-shadow: 0 0 10px #f0abfc, 0 0 20px #e879f9; }
+            50% { opacity: 0.7; -webkit-box-shadow: 0 0 15px #f0abfc, 0 0 30px #e879f9; box-shadow: 0 0 15px #f0abfc, 0 0 30px #e879f9; }
+        }
+
+        @keyframes neonPulse {
+            0%, 100% { opacity: 1; -webkit-box-shadow: 0 0 10px #f0abfc, 0 0 20px #e879f9; box-shadow: 0 0 10px #f0abfc, 0 0 20px #e879f9; }
+            50% { opacity: 0.7; -webkit-box-shadow: 0 0 15px #f0abfc, 0 0 30px #e879f9; box-shadow: 0 0 15px #f0abfc, 0 0 30px #e879f9; }
+        }
+
+        button {
+            background: #3b82f6;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            -webkit-transition: background 0.3s;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #2563eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h3>Dots Progress</h3>
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Processing</span>
+                    <span>65%</span>
+                </div>
+                <div class="dots-progress" style="--progress: 65%"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Liquid Progress</h3>
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Uploading</span>
+                    <span>80%</span>
+                </div>
+                <div class="liquid-progress" style="--progress: 80%"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Rainbow Progress</h3>
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Loading</span>
+                    <span>90%</span>
+                </div>
+                <div class="rainbow-progress" style="--progress: 90%"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Step Progress</h3>
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Installing</span>
+                    <span>45%</span>
+                </div>
+                <div class="step-progress" style="--progress: 45%"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Snake Progress</h3>
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Downloading</span>
+                    <span>55%</span>
+                </div>
+                <div class="snake-progress" style="--progress: 55%"></div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h3>Neon Progress</h3>
+            <div class="progress-container">
+                <div class="progress-label">
+                    <span>Syncing</span>
+                    <span>70%</span>
+                </div>
+                <div class="neon-progress" style="--progress: 70%"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function updateProgress(element, finalValue, duration = 1000) {
+            let currentValue = 0;
+            const increment = finalValue / (duration / 16);
+            
+            const animation = setInterval(() => {
+                currentValue += increment;
+                if (currentValue >= finalValue) {
+                    currentValue = finalValue;
+                    clearInterval(animation);
+                }
+                element.style.setProperty('--progress', `${currentValue}%`);
+            }, 16);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const progressBars = document.querySelectorAll('[class$="-progress"]');
+            progressBars.forEach(bar => {
+                const value = bar.style.getPropertyValue('--progress').replace('%', '');
+                bar.style.setProperty('--progress', '0%');
+                setTimeout(() => updateProgress(bar, parseInt(value)), 500);
+            });
+        });
+    </script>
+</body>
+</html>
