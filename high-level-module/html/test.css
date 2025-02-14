@@ -1,173 +1,99 @@
 @charset "UTF-8";
-/* 첫 번째 숙제 */
-ul {
+/* 숙제 해설 */
+/* === 숙제 1 === */
+.sh-list li {
   list-style: none;
-  width: 400px;
-  height: 30px;
-  border-left: 1px solid gainsboro;
-  border-bottom: 1px solid gainsboro;
-  border-right: 1px solid gainsboro;
-  border-collapse: collapse;
-  display: table;
-  padding: 10px;
-}
-
-li {
-  border-top: 1px solid gainsboro;
   padding: 15px;
+  border: 1px solid #eee;
 }
-
-.active li {
-  background: skyblue;
-  color: white;
-}
-.active:hover {
+.sh-list .active {
   background: skyblue;
   color: white;
 }
 
-/* 두 번째 숙제 */
-.green-box {
-  padding: 1px 20px;
-  margin: 10px;
-  width: 800px;
-  border-radius: 5px;
-  border: 1px solid #DBEDD1;
-  background: #DFF0D7;
-  color: #698E6E;
-}
-
-.blue-box {
-  padding: 1px 20px;
-  margin: 10px;
-  width: 800px;
-  border-radius: 5px;
-  border: 1px solid #C5E9F2;
-  background: #D9EDF7;
-  color: #5E94B8;
-}
-
-.yellow-box {
-  padding: 1px 20px;
-  margin: 10px;
-  width: 800px;
-  border-radius: 5px;
-  border: 1px solid #FCF4E3;
-  background: #FCF8E3;
-  color: #AA9571;
-}
-
-p {
-  display: inline-block;
-  padding: 5px;
-}
-
-p:first-child::first-line {
-  font-weight: bold;
-}
-
-/* 세 번째 숙제 */
-.row {
-  margin: 20px;
-}
-.row::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-.row .col-1 {
-  border: 1px solid #D5CEDF;
-  background: #E5E2EA;
-  float: left;
+/* === 숙제 2 === */
+.alert-box, .alert-box-blue, .alert-box-yellow, .alert-box-green {
   padding: 10px;
-  width: 8.3333333333%;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  color: white;
+}
+
+.alert-box-green {
+  background: green;
+}
+
+.alert-box-yellow {
+  background: orange;
+}
+
+.alert-box-blue {
+  background: skyblue;
+}
+
+/* === 숙제 3 === */
+div {
   box-sizing: border-box;
+}
+
+/* 응용 */
+.row .col-1 {
+  float: left;
+  padding: 15px;
+  width: 8.3333333333%;
 }
 .row .col-2 {
-  border: 1px solid #D5CEDF;
-  background: #E5E2EA;
   float: left;
-  padding: 10px;
+  padding: 15px;
   width: 16.6666666667%;
-  box-sizing: border-box;
 }
 .row .col-3 {
-  border: 1px solid #D5CEDF;
-  background: #E5E2EA;
   float: left;
-  padding: 10px;
+  padding: 15px;
   width: 25%;
-  box-sizing: border-box;
 }
 .row .col-4 {
-  border: 1px solid #D5CEDF;
-  background: #E5E2EA;
   float: left;
-  padding: 10px;
+  padding: 15px;
   width: 33.3333333333%;
-  box-sizing: border-box;
 }
 .row .col-5 {
-  border: 1px solid #D5CEDF;
-  background: #E5E2EA;
   float: left;
-  padding: 10px;
+  padding: 15px;
   width: 41.6666666667%;
-  box-sizing: border-box;
 }
 .row .col-6 {
-  border: 1px solid #D5CEDF;
-  background: #E5E2EA;
   float: left;
-  padding: 10px;
+  padding: 15px;
   width: 50%;
-  box-sizing: border-box;
 }
 .row .col-7 {
-  border: 1px solid #D5CEDF;
-  background: #E5E2EA;
   float: left;
-  padding: 10px;
+  padding: 15px;
   width: 58.3333333333%;
-  box-sizing: border-box;
 }
 .row .col-8 {
-  border: 1px solid #D5CEDF;
-  background: #E5E2EA;
   float: left;
-  padding: 10px;
+  padding: 15px;
   width: 66.6666666667%;
-  box-sizing: border-box;
 }
 .row .col-9 {
-  border: 1px solid #D5CEDF;
-  background: #E5E2EA;
   float: left;
-  padding: 10px;
+  padding: 15px;
   width: 75%;
-  box-sizing: border-box;
 }
 .row .col-10 {
-  border: 1px solid #D5CEDF;
-  background: #E5E2EA;
   float: left;
-  padding: 10px;
+  padding: 15px;
   width: 83.3333333333%;
-  box-sizing: border-box;
 }
 .row .col-11 {
-  border: 1px solid #D5CEDF;
-  background: #E5E2EA;
   float: left;
-  padding: 10px;
+  padding: 15px;
   width: 91.6666666667%;
-  box-sizing: border-box;
 }
 .row .col-12 {
-  border: 1px solid #D5CEDF;
-  background: #E5E2EA;
   float: left;
-  padding: 10px;
+  padding: 15px;
   width: 100%;
-  box-sizing: border-box;
 }/*# sourceMappingURL=test.css.map */

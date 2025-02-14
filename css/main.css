@@ -449,7 +449,113 @@ input[type=email] {
     height: 50%;
 }
 
+/* high-level-module css*/
+.ani-text {
+    text-align: center;
 
+}
+
+.ani-text:hover {
+    animation-name: moving;    
+    animation-duration: 1s;
+}
+
+
+@keyframes moving {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(-100px);
+    }
+    75% {
+        transform: translateX(100px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.ani-btn-box {
+    text-align: center;
+    padding: 25px;
+}
+
+.ani-btn {
+    display: inline-block;
+    border: none;
+    background: skyblue;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.ani-btn:hover {
+    animation-name: btn-moving;
+    animation-duration: 0.5s;
+}
+
+@keyframes btn-moving {
+    0% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+.plus-rt-box {
+    text-align: center;
+    padding: 15px;
+}
+
+.plus-rt {
+    font-size: 36px;
+}
+
+.plus-rt:hover {
+    animation-name: plus-rotate;
+    animation-duration: 1.25s;
+}
+
+@keyframes plus-rotate {
+    25% {
+        transform: rotate(-20deg) scale(1.25);
+    }
+    75% {
+        transform: rotate(20deg) scale(1.75);
+    }
+}
+
+
+.ani-sidebar {
+    width: 200px;
+    background: #000;
+    color: white;
+    height: 100%;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+} 
+
+.ani-sidebar h2 {
+    position: fixed;
+    left: 80px;               /* 원하는 가로 위치 */
+    top: 50%;                 /* 세로 중앙 */
+    transform: translate(-50%, -50%) rotate(-90deg); /* 중앙 정렬 후 회전 */
+    white-space: nowrap;      /* 텍스트 줄바꿈 방지 */
+}
 
 @media screen and (max-width: 1200px) {
     .main-title {

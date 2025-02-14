@@ -1,87 +1,169 @@
-/* 첫 번째 숙제 */
-ul {
-    list-style: none;
-    width: 400px;
-    height: 30px;
-    border-left: 1px solid gainsboro;
-    border-bottom: 1px solid gainsboro;
-    border-right: 1px solid gainsboro;
-    border-collapse: collapse;
-    display: table;
-    padding: 10px;
-}
+// /*
+// Visual Studio Code 주석 단축키
+// Ctrl + / : 한줄 주석 처리 / 해제
+// Ctrl + K + C : 주석 지정
+// Ctrl + K + U : 주석 해제
+// */
+// /* 직접 푼 코드 */
+// /* === 첫 번째 숙제 === */
+// ul {
+//     list-style: none;
+//     width: 400px;
+//     height: 30px;
+//     border-left: 1px solid gainsboro;
+//     border-bottom: 1px solid gainsboro;
+//     border-right: 1px solid gainsboro;
+//     border-collapse: collapse;
+//     display: table;
+//     padding: 10px;
+// }
 
-li {
-    border-top: 1px solid gainsboro;
-    padding: 15px;
-}
+// li {
+//     border-top: 1px solid gainsboro;
+//     padding: 15px;
+// }
 
-.active {
+// .active {
+//     li {
+//         background: skyblue;
+//         color: white;
+//     }
+//     &:hover {
+//         background: skyblue;
+//         color: white;
+//     }
+// }
+
+// /* === 두 번째 숙제 === */
+// @mixin box($val1, $val2, $val3) {
+//     padding: 1px 20px;
+//     margin: 10px;
+//     width: 800px;  
+//     border-radius: 5px;
+//     border: 1px solid #{ $val1 };
+//     background: $val2;
+//     color: $val3;
+// }
+
+// .green-box {
+//     @include box(#DBEDD1, #DFF0D7, #698E6E);
+// }
+
+// .blue-box {
+//     @include box(#C5E9F2, #D9EDF7, #5E94B8);
+// }
+
+// .yellow-box {
+//     @include box(#FCF4E3, #FCF8E3, #AA9571);
+// }
+
+// p {
+//     display: inline-block;
+//     padding: 5px;
+// }
+
+// p:first-child::first-line {
+//     font-weight: bold;
+// }
+
+// /* === 세 번째 숙제 === */
+// @mixin col($cols) {
+//     $width: calc((100% / 12) * $cols);
+
+//     border: 1px solid #D5CEDF;
+//     background: #E5E2EA;
+//     float: left;
+//     padding: 10px;
+//     width: #{ $width };
+//     box-sizing: border-box;
+// } 
+
+// .row {
+//     margin: 20px;
+
+//     &::after {
+//         content: '';
+//         display: block;
+//         clear: both;
+//     }
+
+//     @for $i from 1 through 12 {
+//         .col-#{ $i } {
+//             @include col($i);
+//         }
+//     }
+// }
+
+
+/* 숙제 해설 */
+/* === 숙제 1 === */
+.sh-list {
     li {
+        list-style: none;
+        padding: 15px;
+        border: 1px solid #eee;
+    }
+
+    .active {
         background: skyblue;
         color: white;
     }
-    &:hover {
-        background: skyblue;
-        color: white;
-    }
 }
 
-/* 두 번째 숙제 */
-@mixin box($val1, $val2, $val3) {
-    padding: 1px 20px;
-    margin: 10px;
-    width: 800px;  
-    border-radius: 5px;
-    border: 1px solid #{ $val1 };
-    background: $val2;
-    color: $val3;
-}
-
-.green-box {
-    @include box(#DBEDD1, #DFF0D7, #698E6E);
-}
-
-.blue-box {
-    @include box(#C5E9F2, #D9EDF7, #5E94B8);
-}
-
-.yellow-box {
-    @include box(#FCF4E3, #FCF8E3, #AA9571);
-}
-
-p {
-    display: inline-block;
-    padding: 5px;
-}
-
-p:first-child::first-line {
-    font-weight: bold;
-}
-
-/* 세 번째 숙제 */
-@mixin col($cols) {
-    $width: calc((100% / 12) * $cols);
-
-    border: 1px solid #D5CEDF;
-    background: #E5E2EA;
-    float: left;
+/* === 숙제 2 === */
+.alert-box {
     padding: 10px;
-    width: #{ $width };
+    border-radius: 5px;
+    border: 1px solid #eee;
+    color: white;
+}
+
+.alert-box-green {
+    @extend .alert-box;
+    background: green;
+}
+
+.alert-box-yellow {
+    @extend .alert-box;
+    background: orange;
+}
+
+.alert-box-blue {
+    @extend .alert-box;
+    background: skyblue;
+}
+
+/* === 숙제 3 === */
+div {
     box-sizing: border-box;
-} 
+}
+
+// @mixin column($col) {
+//     float: left;
+//     width: 100% * ($col / 12);
+//     padding: 15px;
+// }
+
+// .row {
+//     .col-6 {
+//         @include column(6);
+//     }
+
+//     .col-4 {
+//         @include column(4);
+//     }
+// }
+
+/* 응용 */
+@mixin col($col) {
+    float: left;
+    padding: 15px;
+    width: (100% / 12) * $col;
+}
 
 .row {
-    margin: 20px;
-
-    &::after {
-        content: '';
-        display: block;
-        clear: both;
-    }
-
     @for $i from 1 through 12 {
-        .col-#{ $i } {
+        .col-#{$i} {
             @include col($i);
         }
     }
