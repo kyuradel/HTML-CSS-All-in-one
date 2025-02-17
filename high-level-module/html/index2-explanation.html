@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <!-- 세번째 숙제 해설 -->
+    <nav class="ani-navbar">
+        <h4>Menu</h4>
+        <p style="text-align: center;">Item</p>
+    </nav>
+
+    <!-- 첫번째 숙제 해설 -->
+    <button class="ani-button">흔들흔들</button>
+
+    <!-- 두번째 숙제 해설 -->
+    <div class="ani-x">+</div>
+
+    
+
+</body>
+</html>
+<style>
+    * { 
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* 첫번째 숙제 해설 */
+    .ani-button:hover {
+        animation-name: shake;
+        animation-duration: 1s;
+    }
+
+    @keyframes shake {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(-8deg); }
+        50% { transform: rotate(8deg); }
+        75% { transform: rotate(-8deg); }
+        100% { transform: rotate(0deg); }
+    }
+
+    .ani-button {
+        padding: 15px 20px;
+        font-size: 20px;
+        background: skyblue;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        display: block;
+        margin: 30px auto;
+    }
+
+    /* 두번째 숙제 해설 */
+    .ani-x:hover {
+        animation-name: turn;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes turn {
+        0% { transform: rotate(0deg); }
+        25% { transform: rotate(-15deg); }
+        100% { transform: rotate(45deg) scale(1.5); }
+    }
+
+    .ani-x {
+        margin: 150px auto;
+        text-align: center;
+        font-size: 70px;
+        width: 84px;
+        cursor: pointer;
+    }
+
+    /* 세번째 숙제 해설 */
+    @keyframes slide {
+        0% { transform: translateX(-250px); }
+        50% { transform: translateX(20px) skewX(-30deg); }
+        100% { transform: translateX(0px); }
+    }
+
+    .ani-navbar:hover p {
+        animation-name: slide;
+        animation-duration: 1s;
+    }
+
+    .ani-navbar:hover {
+        transform: translateX(0px);
+        text-align: center;
+    }
+
+    .ani-navbar {
+        width: 200px;
+        background: black;
+        color: white;
+        height: 100%;
+        top: 0;
+        padding: 25px;
+        position: fixed;
+        z-index: 5;
+        text-align: right;
+        transition: all 1s;
+        transform: translateX(-150px);
+    }
+
+</style>

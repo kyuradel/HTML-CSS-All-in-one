@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 세번째 숙제 -->
+    <nav class="ani-sidebar">
+        <h2 class="ani-menu">Menu</h2>
+        <div class="ani-items">Item</div>
+    </nav>
+
+    <!-- 첫번째 숙제 -->
+    <div class="ani-btn-box">
+        <button class="ani-btn">흔들버튼</button>
+    </div>
+
+    <!-- 두번째 숙제 -->
+    <div class="plus-rt-box">
+        <div class="plus-rt">+</div>
+    </div>
+
+<style>
+/* high-level-module css*/
+.ani-text {
+    text-align: center;
+
+}
+
+.ani-text:hover {
+    animation-name: moving;    
+    animation-duration: 1s;
+}
+
+
+@keyframes moving {
+    0% {
+        transform: translateX(0px);
+    }
+    50% {
+        transform: translateX(-100px);
+    }
+    75% {
+        transform: translateX(100px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.ani-btn-box {
+    text-align: center;
+    padding: 25px;
+}
+
+.ani-btn {
+    display: inline-block;
+    border: none;
+    background: skyblue;
+    color: white;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.ani-btn:hover {
+    animation-name: btn-moving;
+    animation-duration: 0.5s;
+}
+
+@keyframes btn-moving {
+    0% {
+        transform: rotate(0);
+    }
+    25% {
+        transform: rotate(-10deg);
+    }
+    50% {
+        transform: rotate(10deg);
+    }
+    75% {
+        transform: rotate(-10deg);
+    }
+    100% {
+        transform: rotate(0);
+    }
+}
+
+.plus-rt-box {
+    text-align: center;
+    padding: 15px;
+}
+
+.plus-rt {
+    font-size: 36px;
+}
+
+.plus-rt:hover {
+    animation-name: plus-rotate;
+    animation-duration: 1.25s;
+}
+
+@keyframes plus-rotate {
+    25% {
+        transform: rotate(-20deg) scale(1.25);
+    }
+    75% {
+        transform: rotate(20deg) scale(1.75);
+    }
+}
+
+.ani-sidebar {
+    position: fixed;
+    background: black;
+    color: white;
+    height: 100%;
+    width: 10%;
+    z-index: 1;
+}
+
+.ani-menu {
+    position: sticky;
+    top: 10%;
+    margin-right: 30px;
+    text-align: right;
+}
+
+.ani-items {
+    position: sticky;
+    top: 20%;
+    list-style: none;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.ani-sidebar:hover {
+    width: 20%;
+    animation: expand 0.5s ease-in-out forwards;
+}
+
+.ani-sidebar:hover .ani-menu {
+    text-align: center;
+}
+
+.ani-sidebar:hover .ani-items {
+    visibility: visible;
+    opacity: 1;
+    animation: slideIn 0.8s ease-in-out forwards;
+}
+
+/* 사이드바 확장 애니메이션 */
+@keyframes expand {
+    0% {
+        width: 10%;
+    }
+    50% {
+        width: 22%;  /* 약간 더 넓게 했다가 */
+    }
+    100% {
+        width: 20%;  /* 원하는 크기로 */
+    }
+}
+
+/* 메뉴 아이템 슬라이드 인 애니메이션 */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(40px) skew(-20deg);  /* 약간 더 나왔다가 */
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* 사이드바가 축소될 때의 애니메이션 */
+.ani-sidebar:not(:hover) {
+    animation: collapse 0.5s ease-in-out forwards;
+}
+
+.ani-sidebar:not(:hover) .ani-items {
+    animation: slideOut 0.4s ease-in-out forwards;
+}
+
+@keyframes collapse {
+    0% {
+        width: 20%;
+    }
+    100% {
+        width: 10%;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+</style>
+</body>
+</html>

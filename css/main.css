@@ -536,25 +536,103 @@ input[type=email] {
     }
 }
 
-
 .ani-sidebar {
-    width: 200px;
-    background: #000;
+    position: fixed;
+    background: black;
     color: white;
     height: 100%;
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
+    width: 10%;
     z-index: 1;
-} 
+}
 
-.ani-sidebar h2 {
-    position: fixed;
-    left: 80px;               /* 원하는 가로 위치 */
-    top: 50%;                 /* 세로 중앙 */
-    transform: translate(-50%, -50%) rotate(-90deg); /* 중앙 정렬 후 회전 */
-    white-space: nowrap;      /* 텍스트 줄바꿈 방지 */
+.ani-menu {
+    position: sticky;
+    top: 10%;
+    margin-right: 30px;
+    text-align: right;
+}
+
+.ani-items {
+    position: sticky;
+    top: 20%;
+    list-style: none;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.ani-sidebar:hover {
+    width: 20%;
+    animation: expand 0.5s ease-in-out forwards;
+}
+
+.ani-sidebar:hover .ani-menu {
+    text-align: center;
+}
+
+.ani-sidebar:hover .ani-items {
+    visibility: visible;
+    opacity: 1;
+    animation: slideIn 0.8s ease-in-out forwards;
+}
+
+/* 사이드바 확장 애니메이션 */
+@keyframes expand {
+    0% {
+        width: 10%;
+    }
+    50% {
+        width: 22%;  /* 약간 더 넓게 했다가 */
+    }
+    100% {
+        width: 20%;  /* 원하는 크기로 */
+    }
+}
+
+/* 메뉴 아이템 슬라이드 인 애니메이션 */
+@keyframes slideIn {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(40px) skew(-20deg);  /* 약간 더 나왔다가 */
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* 사이드바가 축소될 때의 애니메이션 */
+.ani-sidebar:not(:hover) {
+    animation: collapse 0.5s ease-in-out forwards;
+}
+
+.ani-sidebar:not(:hover) .ani-items {
+    animation: slideOut 0.4s ease-in-out forwards;
+}
+
+@keyframes collapse {
+    0% {
+        width: 20%;
+    }
+    100% {
+        width: 10%;
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(-100%);
+        opacity: 0;
+        visibility: hidden;
+    }
 }
 
 @media screen and (max-width: 1200px) {
