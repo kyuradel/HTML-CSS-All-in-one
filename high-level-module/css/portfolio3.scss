@@ -1,0 +1,172 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* NAV Sidebar */
+.side-bar {
+    position: fixed;
+    text-align: center;
+    background: #494CB4;
+    color: white;
+    height: 100%;
+    width: 4%;
+    z-index: 5;
+    
+    .side-nav { 
+        margin: 20px 10px;
+        cursor: pointer;
+        position: relative;
+    } 
+
+    span { 
+        display: none;
+        position: absolute;
+        margin-left: 10px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &:hover {
+        width: 10%;
+        text-align: left;
+        padding-left: 10px;
+        animation: expand 0.5s forwards;
+
+        span { 
+            display: inline-block;
+            animation: SlideIn 0.5s forwards;
+        }
+    }
+
+    &:not(:hover) {
+        animation: collapse 0.5s forwards;
+
+        span {
+            animation: SlideOut 0.5s forwards;  // 추가: 사라질 때의 애니메이션
+        }
+    }
+}
+
+
+@keyframes SlideIn {
+    0% { 
+        opacity: 0;
+        transform: translateX(-100px) translateY(-50%); 
+    }
+    100% { 
+        opacity: 1;
+        transform: translateX(0) translateY(-50%); 
+    }
+}
+
+@keyframes SlideOut {  // 추가: 사라지는 애니메이션
+    0% { 
+        opacity: 1;
+        transform: translateX(0) translateY(-50%); 
+    }
+    100% { 
+        opacity: 0;
+        transform: translateX(-100px) translateY(-50%);
+        display: none;
+    }
+}
+
+@keyframes expand {
+    0% { width: 4%; }
+    100% { width: 10%; }
+}
+
+@keyframes collapse {
+    0% { width: 10%; }
+    100% { width: 4%; }
+}
+
+/* Header */
+header {
+    box-shadow: 0 0 5px rgba($color: grey, $alpha: 0.5);
+    position: relative;
+    padding: 1%;
+    padding-bottom: 50px;
+}
+
+
+.search-box {
+    float: left;
+    margin-left: 5%;
+    display: flex;
+    align-items: center;
+
+    input {
+        float: left;
+        border: 1px solid gainsboro;
+        border-radius: 5px;
+        padding: 10px;
+        width: 170px;
+        transition: width 0.5s;
+
+        &::placeholder {
+            color: #999;
+            font-size: 15px;
+            font-weight: 300;
+        }
+
+        &:focus {
+            width: 300px;
+            outline: none;
+            border-color: #87CEEB;
+            box-shadow: 0 0 5px rgba(135, 206, 235, 0.3);
+        }
+    }
+
+    i {
+        float: right;
+        background: #343A40;
+        color: white;
+        border-radius: 5px;
+        width: 40px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+}
+
+.icons-box {
+    float: right;
+    margin-right: 2%;
+    color: grey;
+
+    i {
+        padding: 10px 20px;
+        position: relative;
+    }
+
+    i:nth-child(1)::after {
+        content: '5';
+        position: absolute;
+        top: 1px;
+        right: 11px;
+        background-color: #FF4444;
+        color: white;
+        font-size: 10px;
+        padding: 3px 5px;
+        border-radius: 5px;
+        font-style: 100;
+    }
+
+    i:nth-child(2)::after {
+        content: '9';
+        position: absolute;
+        top: 1px;
+        right: 11px;
+        background-color: #FF4444;
+        color: white;
+        font-size: 10px;
+        padding: 3px 5px;
+        border-radius: 5px;
+        font-style: 100;
+    }
+}
