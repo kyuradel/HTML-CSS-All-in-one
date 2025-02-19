@@ -4,6 +4,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background: #F9F9F9;
+}
+
 /* NAV Sidebar */
 .side-bar {
   position: fixed;
@@ -11,7 +15,7 @@
   background: #494CB4;
   color: white;
   height: 100%;
-  width: 4%;
+  width: 50px;
   z-index: 5;
 }
 .side-bar .side-nav {
@@ -27,7 +31,7 @@
   transform: translateY(-50%);
 }
 .side-bar:hover {
-  width: 10%;
+  width: 150px;
   text-align: left;
   padding-left: 10px;
   animation: expand 0.5s forwards;
@@ -66,18 +70,18 @@
 }
 @keyframes expand {
   0% {
-    width: 4%;
+    width: 50px;
   }
   100% {
-    width: 10%;
+    width: 150px;
   }
 }
 @keyframes collapse {
   0% {
-    width: 10%;
+    width: 150px;
   }
   100% {
-    width: 4%;
+    width: 50px;
   }
 }
 /* Header */
@@ -86,11 +90,12 @@ header {
   position: relative;
   padding: 1%;
   padding-bottom: 50px;
+  background: white;
 }
 
 .search-box {
   float: left;
-  margin-left: 5%;
+  margin-left: 50px;
   display: flex;
   align-items: center;
 }
@@ -118,6 +123,9 @@ header {
   border-color: #87CEEB;
   box-shadow: 0 0 5px rgba(135, 206, 235, 0.3);
 }
+.search-box input:focus header {
+  padding-bottom: 100px;
+}
 .search-box i {
   float: right;
   background: #343A40;
@@ -130,10 +138,15 @@ header {
   justify-content: center;
   cursor: pointer;
 }
+@media screen and (max-width: 768px) {
+  .search-box {
+    display: none;
+  }
+}
 
 .icons-box {
   float: right;
-  margin-right: 2%;
+  margin-right: 10px;
   color: grey;
 }
 .icons-box i {
@@ -163,4 +176,223 @@ header {
   padding: 3px 5px;
   border-radius: 5px;
   font-style: 100;
+}
+@media screen and (max-width: 768px) {
+  .icons-box {
+    display: none;
+  }
+}
+
+.mobile-box {
+  float: right;
+  margin-right: 20px;
+  margin-top: 5px;
+  color: grey;
+  display: none;
+}
+.mobile-box i {
+  border: 1px solid rgba(128, 128, 128, 0.2);
+  border-radius: 5px;
+  padding: 5px 15px;
+  font-size: 25px;
+}
+@media screen and (max-width: 768px) {
+  .mobile-box {
+    display: block;
+  }
+}
+
+/* Dashboard Body */
+.dashboard {
+  margin-top: 25px;
+  margin-left: 70px;
+  width: calc(100% - 70px);
+}
+
+/* Grid-container and boxes */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  margin-top: 15px;
+  margin-right: 15px;
+}
+.grid-container .skyblue-box {
+  background: white;
+  width: 95%;
+  min-width: 265px;
+  height: 115px;
+  border-radius: 8px;
+  border-left: 4px solid skyblue;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.3);
+}
+.grid-container .skyblue-box div {
+  margin-left: 8%;
+}
+.grid-container .skyblue-box div p {
+  margin-bottom: 6%;
+}
+.grid-container .skyblue-box i {
+  margin-right: 8%;
+  color: grey;
+}
+.grid-container .green-box {
+  background: white;
+  width: 95%;
+  min-width: 265px;
+  height: 115px;
+  border-radius: 8px;
+  border-left: 4px solid green;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.3);
+}
+.grid-container .green-box div {
+  margin-left: 8%;
+}
+.grid-container .green-box div p {
+  margin-bottom: 6%;
+}
+.grid-container .green-box i {
+  margin-right: 8%;
+  color: grey;
+}
+.grid-container .navy-box {
+  background: white;
+  width: 95%;
+  min-width: 265px;
+  height: 115px;
+  border-radius: 8px;
+  border-left: 4px solid navy;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.3);
+}
+.grid-container .navy-box div {
+  margin-left: 8%;
+}
+.grid-container .navy-box div p {
+  margin-bottom: 6%;
+}
+.grid-container .navy-box i {
+  margin-right: 8%;
+  color: grey;
+}
+.grid-container .orange-box {
+  background: white;
+  width: 95%;
+  min-width: 265px;
+  height: 115px;
+  border-radius: 8px;
+  border-left: 4px solid orange;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.3);
+}
+.grid-container .orange-box div {
+  margin-left: 8%;
+}
+.grid-container .orange-box div p {
+  margin-bottom: 6%;
+}
+.grid-container .orange-box i {
+  margin-right: 8%;
+  color: grey;
+}
+@media screen and (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.bottom-container {
+  margin-top: 35px;
+  background-color: white;
+}
+
+.overview-container {
+  float: left;
+  box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.2);
+  width: 745px;
+  border-radius: 8px;
+  background: white;
+}
+.overview-container .overview-title {
+  background: #F9F9F9;
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  padding: 13px 20px;
+}
+.overview-container .overview-canvas {
+  background: white;
+  padding: 13px 20px;
+}
+@media screen and (max-width: 768px) {
+  .overview-container {
+    width: 95%;
+  }
+}
+
+.tasks-container {
+  float: right;
+  margin-right: 30px;
+  box-shadow: 1px 1px 5px rgba(128, 128, 128, 0.2);
+  width: 395px;
+  border-radius: 8px;
+}
+.tasks-container div {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+  padding: 13px 20px;
+}
+.tasks-container table {
+  background: white;
+  width: 100%;
+  border-collapse: collapse;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+}
+.tasks-container table tr {
+  border-top: 1px solid rgba(128, 128, 128, 0.2);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+}
+.tasks-container table tr td {
+  padding: 13px 20px;
+}
+.tasks-container table tr td:last-child {
+  text-align: right;
+  padding-right: 30px;
+  width: 70px;
+}
+.tasks-container table tr td:last-child p {
+  display: inline-block;
+  min-width: 20px;
+  padding: 2px 6px;
+  border-radius: 12px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  background: #007BFF;
+  line-height: 1.2;
+}
+.tasks-container table tr:first-child {
+  border-top: none;
+}
+.tasks-container table tr:last-child {
+  border-bottom: none;
+}
+@media screen and (max-width: 768px) {
+  .tasks-container {
+    width: 95%;
+    align-items: center;
+    margin-top: 35px;
+  }
 }/*# sourceMappingURL=portfolio3.css.map */

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
+    <!-- NAV sidebar -->
     <nav>
         <div class="side-bar">
             <div class="side-nav"><i class="fas fa-home"></i><span>Home</span></div>
@@ -17,8 +18,7 @@
         </div>
     </nav>
     
-<div class="container">
-
+    <!-- Header -->
     <header>
         <div class="search-box">
             <input type="search" placeholder="Search">
@@ -27,17 +27,112 @@
         <div class="icons-box">
             <i class="fas fa-bell"></i>
             <i class="fas fa-envelope"></i>
-            <span>Minny Park</span>
+            <span>Yoonyi Nam</span>
+        </div>
+        <div class="mobile-box">
+            <i class="fas fa-bars"></i>
         </div>
     </header>
 
+    <!-- Dashboard Body -->
     <div class="dashboard">
-        <h3>Dashboard</h3>
-        <div>
+        <h2>Dashboard</h2>
+        
+        <!-- Top container -->
+        <!-- Grid-container and boxes -->
+        <div class="grid-container">
+            <div class="skyblue-box">
+                <div>
+                    <p>Earnings (Monthly)</p>
+                    <h3>$400,000</h3>
+                </div>
+                <i class="fas fa-calendar fa-2x"></i>
+            </div>
+            <div class="green-box">
+                <div>
+                    <p>Earnings (Annual)</p>
+                    <h3>$800,000</h3>
+                </div>
+                <i class="fas fa-dollar-sign fa-2x"></i>
+            </div>
+            <div class="navy-box">
+                <div>
+                    <p>Tasks</p>
+                    <h3>13</h3>
+                </div>
+                <i class="fas fa-tasks fa-2x"></i>
+            </div>
+            <div class="orange-box">
+                <div>
+                    <p>Requests</p>
+                    <h3>26</h3>
+                </div>
+                <i class="fas fa-comments fa-2x"></i>
+            </div>
+        </div>
+
+
+        <!-- Bottom container -->
+        <div class="bottom-container">
+            <!-- Overview-container -->
+            <div class="overview-container">
+                <div class="overview-title"><h4>Earnings Overeview</h4></div>
+                <div class="overview-canvas">
+                    <canvas id="myChart"></canvas>
+                </div>
+            </div>
+
+
+            <div class="tasks-container">
+                <div><h4>Tasks</h4></div>
+                <table>
+                    <tr>
+                        <td>Borrowed Items</td>
+                        <td><p>14</p></td>
+                    </tr>
+                    <tr>
+                        <td>Trello requests</td>
+                        <td><p>2</p></td>
+                    </tr>
+                    <tr>
+                        <td>Marked Comments</td>
+                        <td><p>1</p></td>
+                    </tr>
+                </table>
+            </div>
+
 
         </div>
     </div>
-</div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+
+    <script>
+        const ctx = document.getElementById('myChart').getContext('2d');
+        const myChart = new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+                datasets: [{
+                    label: 'Monthly',
+                    data: [12, 19, 3, 5, 2, 3, 8],
+                    backgroundColor: '#A3A5E0',
+                    borderColor : '#494CB4',
+                    fill: true,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+      </script>
+
 
 </body>
 </html>
